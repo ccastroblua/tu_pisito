@@ -66,7 +66,8 @@ def idealista_request(bearer_token, lat_lon, distance):
 
 need_renewal = {
     "good": 0,
-    "renew": 1
+    "renew": 1,
+    "newdevelopment": 0
 }
 
 house_types = {
@@ -78,7 +79,8 @@ house_types = {
 }
 
 neighborhoods_names = {
-    "Malasaña-Universidad": "Malasaña-Universidad"
+    "Malasaña-Universidad": "Malasaña-Universidad",
+    "Villaverde Alto": "San Andrés"
 }
 
 districts_names = {
@@ -95,7 +97,7 @@ districts_names = {
     "Carabanchel": "Carabanchel",
     "Usera": "Usera",
     "Puente de Vallecas": "Puente de Vallecas",
-    "Mortalaz": "Mortalaz",
+    "Moratalaz": "Moratalaz",
     "Ciudad Lineal": "Ciudad Lineal",
     "Hortaleza": "Hortaleza",
     "Villaverde": "Villaverde",
@@ -238,9 +240,10 @@ def creating_dataframe(result):
     new_list2 = []
     
     for i in range(len(result["elementList"])):
-        dic1, dic2 = transform_idealista(result, i)
-        new_list1.append(dic1)
-        new_list2.append(dic2)
+        if "neighborhood" in result["elementList"][i].keys():
+            dic1, dic2 = transform_idealista(result, i)
+            new_list1.append(dic1)
+            new_list2.append(dic2)
         
     return pd.DataFrame(new_list1), pd.DataFrame(new_list2)
 

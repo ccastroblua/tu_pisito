@@ -1,0 +1,21 @@
+sq_mt_built,n_rooms,n_bathrooms,latitude,longitude,address,buy_price,is_new_development,is_renewal_needed,has_lift,is_exterior,has_parking,floor,neighborhood_id,house_type_id,district_id
+394.0,6,5,40.4512949,-3.6330248,barrio Conde Orgaz-Piovera,1760000.0,0,1,0,0,1,0.0,65,3,16
+452.0,5,5,40.4491295,-3.646037,barrio Conde Orgaz-Piovera,1790000.0,0,0,0,0,1,0.0,65,3,16
+754.0,7,6,40.4603804,-3.6369175,Calle del Sotillo,1900000.0,0,0,0,0,1,0.0,65,3,16
+520.0,5,5,40.4613237,-3.632291,barrio Conde Orgaz-Piovera,1650000.0,0,0,0,0,1,0.0,65,3,16
+200.0,4,3,40.4527038,-3.6474044,Avenida de los Madroños,1290000.0,0,0,1,1,1,2.0,65,0,16
+719.0,6,6,40.4612352,-3.6373831,barrio Conde Orgaz-Piovera,3200000.0,0,0,0,0,1,0.0,65,3,16
+501.0,4,3,40.4540501,-3.6355986,barrio Conde Orgaz-Piovera,2450000.0,0,0,0,0,1,0.0,65,3,16
+384.0,5,6,40.455587,-3.6273873,barrio Conde Orgaz-Piovera,1450000.0,0,0,0,0,1,0.0,65,3,16
+340.0,5,4,40.4594321,-3.6330345,barrio Conde Orgaz-Piovera,1390000.0,0,0,0,0,1,0.0,65,3,16
+140.0,3,2,40.4636655,-3.6665845,barrio Nueva España,740000.0,0,0,1,1,1,4.0,89,0,5
+232.0,3,3,40.4592198,-3.6240711,barrio Conde Orgaz-Piovera,1190000.0,0,0,1,1,1,1.0,65,0,16
+754.0,7,6,40.4622804,-3.6404175,barrio Conde Orgaz-Piovera,1950000.0,0,0,0,0,1,0.0,65,3,16
+1021.0,6,6,40.4612352,-3.6389831,barrio Conde Orgaz-Piovera,3200000.0,0,0,0,0,1,0.0,65,3,16
+900.0,7,7,40.4570066,-3.6345373,barrio Conde Orgaz-Piovera,2980000.0,0,0,0,0,1,0.0,65,3,16
+800.0,7,8,40.4543447,-3.6373362,barrio Conde Orgaz-Piovera,3700000.0,0,0,0,0,1,0.0,65,3,16
+740.0,5,7,40.4575131,-3.6369803,barrio Conde Orgaz-Piovera,2950000.0,0,0,0,0,1,0.0,65,3,16
+194.0,4,3,40.452549,-3.6485346,barrio Conde Orgaz-Piovera,1250000.0,0,0,1,1,1,4.0,65,0,16
+340.0,5,5,40.4574443,-3.6335224,barrio Conde Orgaz-Piovera,1390000.0,0,0,0,0,1,0.0,65,3,16
+442.0,5,6,40.4537507,-3.6528409,barrio Conde Orgaz-Piovera,1830000.0,0,0,0,0,1,0.0,65,3,16
+520.0,5,4,40.4527038,-3.6471044,barrio Conde Orgaz-Piovera,1790000.0,0,0,1,1,1,3.0,65,1,16

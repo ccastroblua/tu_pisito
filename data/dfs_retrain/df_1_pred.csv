@@ -1,0 +1,21 @@
+sq_mt_built,n_rooms,n_bathrooms,latitude,longitude,buy_price,is_new_development,is_renewal_needed,has_lift,is_exterior,has_parking,floor,house_type,value_m2,neighborhood,district
+99.0,2,2,40.3810704,-3.6371504,219500.0,0,0,1,1,0,5.0,0,2076.58,Palomeras sureste,Puente de Vallecas
+108.0,3,2,40.3659919,-3.6216759,281811.0,1,0,1,1,1,0.0,0,2677.28,Ensanche de Vallecas - La Gavia,Villa de Vallecas
+107.0,3,2,40.3855443,-3.6095448,249000.0,0,0,1,1,1,3.0,0,2175.93,Santa Eugenia,Villa de Vallecas
+100.0,3,2,40.3874152,-3.6070044,249000.0,0,0,1,1,1,8.0,0,2175.93,Santa Eugenia,Villa de Vallecas
+88.0,2,2,40.3845296,-3.6154995,180000.0,0,0,1,1,0,2.0,0,2175.93,Santa Eugenia,Villa de Vallecas
+106.0,4,2,40.383429,-3.605816,213000.0,0,1,1,1,0,4.0,0,2175.93,Santa Eugenia,Villa de Vallecas
+88.0,3,2,40.3812124,-3.6244812,310000.0,1,0,1,1,0,1.0,0,1956.0,Casco Histórico de Vallecas,Villa de Vallecas
+46.0,1,1,40.3812124,-3.6244812,180000.0,1,0,1,1,0,2.0,0,1956.0,Casco Histórico de Vallecas,Villa de Vallecas
+60.0,2,2,40.3812124,-3.6244812,196500.0,1,0,1,1,0,0.0,0,1956.0,Casco Histórico de Vallecas,Villa de Vallecas
+99.0,3,2,40.3659919,-3.6216759,268737.0,1,0,1,1,1,0.0,0,2677.28,Ensanche de Vallecas - La Gavia,Villa de Vallecas
+100.0,3,2,40.3659919,-3.6216759,283049.0,1,0,1,1,1,0.0,0,2677.28,Ensanche de Vallecas - La Gavia,Villa de Vallecas
+126.0,3,2,40.372571,-3.6063295,479200.0,1,0,1,1,0,0.0,2,2677.28,Ensanche de Vallecas - La Gavia,Villa de Vallecas
+90.0,3,2,40.3851567,-3.6076944,229000.0,0,0,1,1,1,7.0,0,2175.93,Santa Eugenia,Villa de Vallecas
+113.0,3,2,40.3767224,-3.6267972,175000.0,0,0,1,1,0,2.0,0,1956.0,Casco Histórico de Vallecas,Villa de Vallecas
+93.0,3,2,40.3844929,-3.6094444,205000.0,0,0,1,1,0,8.0,0,2175.93,Santa Eugenia,Villa de Vallecas
+50.0,2,1,40.3741324,-3.6186112,104900.0,0,0,0,1,0,3.0,0,1956.0,Casco Histórico de Vallecas,Villa de Vallecas
+50.0,1,1,40.3664153,-3.619684,159900.0,0,0,1,1,1,4.0,0,2677.28,Ensanche de Vallecas - La Gavia,Villa de Vallecas
+65.0,2,1,40.3767445,-3.6246045,119900.0,0,0,0,1,1,1.0,0,1956.0,Casco Histórico de Vallecas,Villa de Vallecas
+75.0,3,1,40.3794461,-3.6265737,122000.0,0,0,0,1,0,1.0,0,1956.0,Casco Histórico de Vallecas,Villa de Vallecas
+60.0,3,1,40.3838492,-3.6411882,123000.0,0,1,0,1,0,0.0,0,2076.58,Palomeras sureste,Puente de Vallecas

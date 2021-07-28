@@ -1,0 +1,21 @@
+sq_mt_built,n_rooms,n_bathrooms,latitude,longitude,buy_price,is_new_development,is_renewal_needed,has_lift,is_exterior,has_parking,floor,house_type,value_m2,neighborhood,district
+394.0,6,5,40.4512949,-3.6330248,1760000.0,0,1,0,0,1,0.0,3,4275.46,Conde Orgaz-Piovera,Hortaleza
+452.0,5,5,40.4491295,-3.646037,1790000.0,0,0,0,0,1,0.0,3,4275.46,Conde Orgaz-Piovera,Hortaleza
+754.0,7,6,40.4603804,-3.6369175,1900000.0,0,0,0,0,1,0.0,3,4275.46,Conde Orgaz-Piovera,Hortaleza
+520.0,5,5,40.4613237,-3.632291,1650000.0,0,0,0,0,1,0.0,3,4275.46,Conde Orgaz-Piovera,Hortaleza
+200.0,4,3,40.4527038,-3.6474044,1290000.0,0,0,1,1,1,2.0,0,4275.46,Conde Orgaz-Piovera,Hortaleza
+719.0,6,6,40.4612352,-3.6373831,3200000.0,0,0,0,0,1,0.0,3,4275.46,Conde Orgaz-Piovera,Hortaleza
+501.0,4,3,40.4540501,-3.6355986,2450000.0,0,0,0,0,1,0.0,3,4275.46,Conde Orgaz-Piovera,Hortaleza
+384.0,5,6,40.455587,-3.6273873,1450000.0,0,0,0,0,1,0.0,3,4275.46,Conde Orgaz-Piovera,Hortaleza
+340.0,5,4,40.4594321,-3.6330345,1390000.0,0,0,0,0,1,0.0,3,4275.46,Conde Orgaz-Piovera,Hortaleza
+140.0,3,2,40.4636655,-3.6665845,740000.0,0,0,1,1,1,4.0,0,5363.75,Nueva España,Chamartín
+232.0,3,3,40.4592198,-3.6240711,1190000.0,0,0,1,1,1,1.0,0,4275.46,Conde Orgaz-Piovera,Hortaleza
+754.0,7,6,40.4622804,-3.6404175,1950000.0,0,0,0,0,1,0.0,3,4275.46,Conde Orgaz-Piovera,Hortaleza
+1021.0,6,6,40.4612352,-3.6389831,3200000.0,0,0,0,0,1,0.0,3,4275.46,Conde Orgaz-Piovera,Hortaleza
+900.0,7,7,40.4570066,-3.6345373,2980000.0,0,0,0,0,1,0.0,3,4275.46,Conde Orgaz-Piovera,Hortaleza
+800.0,7,8,40.4543447,-3.6373362,3700000.0,0,0,0,0,1,0.0,3,4275.46,Conde Orgaz-Piovera,Hortaleza
+740.0,5,7,40.4575131,-3.6369803,2950000.0,0,0,0,0,1,0.0,3,4275.46,Conde Orgaz-Piovera,Hortaleza
+194.0,4,3,40.452549,-3.6485346,1250000.0,0,0,1,1,1,4.0,0,4275.46,Conde Orgaz-Piovera,Hortaleza
+340.0,5,5,40.4574443,-3.6335224,1390000.0,0,0,0,0,1,0.0,3,4275.46,Conde Orgaz-Piovera,Hortaleza
+442.0,5,6,40.4537507,-3.6528409,1830000.0,0,0,0,0,1,0.0,3,4275.46,Conde Orgaz-Piovera,Hortaleza
+520.0,5,4,40.4527038,-3.6471044,1790000.0,0,0,1,1,1,3.0,1,4275.46,Conde Orgaz-Piovera,Hortaleza
