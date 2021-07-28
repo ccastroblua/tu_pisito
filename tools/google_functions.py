@@ -141,3 +141,5 @@ def get_shopping_malls(latitude, longitude, radius=1000):
     place_type = "shopping_mall"
     data = get_places(latitude, longitude, radius, type_=place_type)
     return data
+
+

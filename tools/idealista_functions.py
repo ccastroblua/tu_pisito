@@ -46,7 +46,7 @@ lat_lon = str(latitude) + "," + str(longitude)
 """
 
 # Function to call idealista API and get a request:
-def idealista_request(bearer_token, lat_lon, distance):
+def idealista_request(bearer_token, lat_lon, distance=2000):
     url = "https://api.idealista.com/3.5/es/search"
 
     headers = {'Content-Type': 'Content-Type: multipart/form-data;', 

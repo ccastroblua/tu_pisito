@@ -69,3 +69,7 @@ ON apartments.neighborhood_id = neighborhoods.neighborhood_id
 LEFT JOIN districts
 ON neighborhoods.district_id = districts.district_id
 ORDER BY apartment_id DESC;
+
+SELECT neighborhood_name
+FROM neighborhoods
+ORDER BY neighborhood_id ASC;
