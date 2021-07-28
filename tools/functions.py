@@ -37,8 +37,7 @@ def getting_mysql_data(dropping_price=True):
     # Renaming columns:
     mysql_df = mysql_df.rename(columns = {
     "neighborhood_name": "neighborhood",
-    "district_name": "district",
-    "house_type": "house_type_id"
+    "district_name": "district"
        })
 
     # Changing price to log10 of price:

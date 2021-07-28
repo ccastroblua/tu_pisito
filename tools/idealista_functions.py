@@ -226,7 +226,7 @@ def transform_idealista(result, index):
                         "is_exterior": is_exterior,
                         "has_parking": has_parking,
                         "floor": floor,
-                        "house_type": house_type_id,
+                        "house_type_id": house_type_id,
                         "value_m2": value_m2,
                         "neighborhood": neighborhood,
                         "district": district
