@@ -129,6 +129,8 @@ if confirmation:
 
             buy_prediction = int(predicted_df.loc[apartments_option].astype(str)["buy_prediction"])
             buy_price = int(predicted_df.loc[apartments_option].astype(str)["buy_price"])
+            "Buying price: ", buy_price
+            "Predicted value: ", buy_prediction
 
             good = func.is_good_purchase(buy_price, buy_prediction)
             if good:

@@ -27,14 +27,27 @@ This project has several stages defined:
     - Python file (google_functions.py): File with all API Google Maps functions.
     - Python file (idealista_functions.py): File with all Idealista API functions.
 - "notebooks" folder with several Jupyter Notebooks, most important are:
-    - Jupyter notebook file (api_idealista.py): File with different response tests from Idealista API.
+    - Jupyter notebook file (api_idealista.ipynb): File with different response tests from Idealista API.
+    - Jupyter notebook file (google_api.ipynb): File with different response tests from Google Maps API.
+    - Jupyter notebook file (myql_to_model_v2.ipynb): File with the whole process of get data from MySQL, train a model, test it's results and visualize it's errors.
+    - Jupyter notebook file (exploration.ipynb): Initial jupyter notebook for the exploration steps with the initial dataset.
+    - Jupyter notebook file (cleaning_v2.ipynb): Jupyter notebook file with the cleaning process of the dataset.
+    - Jupyter notebook file (predictive-model.ipynb): Jupyter notebook file with the first model train.
+    - Jupyter notebook file (predictive-model.ipynb): Jupyter notebook file with the first model train.
+    - Jupyter notebook file (testing_old_model_v2.ipynb): Jupyter notebook file with testing a predictive model with new data.
+    - Jupyter notebook file (importing_mysql.ipynb): Jupyter notebook file importing dataframes to mysql tables (neighborhoods and apartments)
 - "image" folder with:
     - Coverpage image (madrid.jpg)
     - Schema of MySQL database structure (mysql-db-structure.jpg)
 - "model" folder the last machine learning model:
     - "GBM_grid__1_AutoML_20210728_185537_model_16" file
-- "data" folder with several CSV files
-
+- "data" folder with several CSV files:
+    - "houses_Madrid.csv": Data from kaggle
+    - "madrid-coordinates.csv": Dataset with coordinates (latitude and longitude)
+    - "clean-madrid-v2.csv": Dataset with coordinates and clean
+    - "madrid-neighborhoods.csv": Dataset with each beighborhood information
+    - folder "real_data" with the last request to Idealista API, ready to upload into mysql bd and predict prices
+    - folder "dfs_retrain" with some old requests from Idealista API
 
 ## Libraries used:
 
@@ -49,6 +62,10 @@ This project has several stages defined:
 - [H2O](https://docs.h2o.ai/h2o/latest-stable/h2o-py/docs/intro.html)
 - [Numpy](https://numpy.org/)
 - [Geopy](https://geopy.readthedocs.io/en/stable/)
+
+## Dataset used:
+
+- [Madrid real estate market](https://www.kaggle.com/mirbektoktogaraev/madrid-real-estate-market)
 
 ## DB used:
 
