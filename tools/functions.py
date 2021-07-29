@@ -191,7 +191,7 @@ def maps(df, initial_lat, initial_lon):
             icon = Icon (
             color="orange",
             prefix="fa",
-            icon="shop",
+            icon="shopping-bag",
             icon_color="black"
         )
         elif row["place_type"] == "cafe":
@@ -212,7 +212,7 @@ def maps(df, initial_lat, initial_lon):
             icon = Icon (
             color="darkred",
             prefix="fa",
-            icon="school",
+            icon="graduation-cap",
             icon_color="black"
         )
         elif row["place_type"] == "bar":
@@ -236,11 +236,11 @@ def maps(df, initial_lat, initial_lon):
             icon="subway",
             icon_color="black"
         )
-        elif row["place_type"] == "bus_station":
+        elif row["place_type"] == "train_station":
             icon = Icon (
             color="red",
             prefix="fa",
-            icon="bus",
+            icon="train",
             icon_color="black"
         )
         elif row["place_type"] == "gym":

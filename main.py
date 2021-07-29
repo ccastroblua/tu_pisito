@@ -86,7 +86,7 @@ if confirmation:
         "Longitude:", longitude
         # lat_lon
         # df_user_inputs
-        apartments_df = pd.read_csv("./data/test.csv")
+        apartments_df = pd.read_csv("./data/real_data/test.csv")
         # apartments_df = i_func.pipeline_idealista(lat_lon)
         
         predicted_df = func.predict_prices(apartments_df)

@@ -313,6 +313,6 @@ def pipeline_idealista(lat_lon):
     result = idealista_request(token, lat_lon)
     df_mysql, df_pred = creating_dataframe(result)
     # import_idealista_to_mysql(df_mysql)
-    df_mysql.to_csv(f"./data/df_mysql_{current_time}.csv", index = False)
-    
+    df_mysql.to_csv(f"./data/real_data/df_mysql_{current_time}.csv", index = False)
+    df_pred.to_csv(f"./data/real_data/df_pred_{current_time}.csv", index = False)
     return df_pred
