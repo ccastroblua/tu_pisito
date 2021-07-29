@@ -276,3 +276,25 @@ def predict_prices(df):
     final_df = final_df.astype({"buy_prediction": int})
     # final_df.drop(cols, axis=1, inplace=True)
     return final_df
+
+
+def is_good_purchase(price, prediction):
+    
+    per_error = (price - prediction) / price * 100
+
+    if price < 1000000:
+        if per_error < -20:
+            return True
+        else:
+            return False
+    elif price < 2000000:
+        if per_error < -30:
+            return True
+        else:
+            return False
+    else:
+        if per_error < -5:
+            return True
+        else:
+            return False
+

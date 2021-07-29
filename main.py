@@ -82,41 +82,71 @@ confirmation = st.sidebar.checkbox("Let's search for my apartment!")
 
 if confirmation:
     if initial_selection == df_option[1] or initial_selection == df_option[2]:
-        "Latitude:", latitude
-        "Longitude:", longitude
-        # lat_lon
-        # df_user_inputs
+
         apartments_df = pd.read_csv("./data/real_data/test.csv")
         # apartments_df = i_func.pipeline_idealista(lat_lon)
         
         predicted_df = func.predict_prices(apartments_df)
-        predicted_df
-        # st.table(apartments_df)
+        columns = ["name",
+                "sq_mt_built",
+                "n_rooms",
+                "n_bathrooms",
+                "floor",
+                "buy_price",
+                "neighborhood",
+                "url"
+        ]
+        show_df = predicted_df[columns]
+        st.table(show_df)
 
 
         apartments_list = list(range(len(apartments_df.index)))
 
 
         apartments_option = st.selectbox(
-        "Which apartment do you like?", ["Choose one"] + apartments_list
+        "Which apartment do you like? (Select the apartment number of the table above)", ["Choose one"] + apartments_list
         )
 
         if apartments_option != "Choose one":
-            ap_selection = apartments_df.loc[apartments_option].astype(str)
-            ap_selection
+            
+            st.subheader("Your selected apartments has:")
+            predicted_df.loc[apartments_option].astype(str)["sq_mt_built"], "square meters."
+            predicted_df.loc[apartments_option].astype(str)["n_rooms"], "rooms."
+            predicted_df.loc[apartments_option].astype(str)["n_bathrooms"], "bathrooms."
+            "It's on the ", predicted_df.loc[apartments_option].astype(str)["floor"], " floor."
+            "It's in ", predicted_df.loc[apartments_option].astype(str)["neighborhood"], " neighborhood."
+
+            if int(predicted_df.loc[apartments_option].astype(str)["is_new_development"]) == 1:
+                "It's brand new!"
+            if int(predicted_df.loc[apartments_option].astype(str)["is_renewal_needed"]) == 1:
+                "Needs a renewal."
+            if int(predicted_df.loc[apartments_option].astype(str)["has_lift"]) == 1:
+                "Has lift."
+            if int(predicted_df.loc[apartments_option].astype(str)["has_parking"]) == 1:
+                "It has parking for your car."
+
+            "URL to see the aparment: ", predicted_df.loc[apartments_option].astype(str)["url"]
+
+            buy_prediction = int(predicted_df.loc[apartments_option].astype(str)["buy_prediction"])
+            buy_price = int(predicted_df.loc[apartments_option].astype(str)["buy_price"])
+
+            good = func.is_good_purchase(buy_price, buy_prediction)
+            if good:
+                st.write(""" ### THIS IS A GREAT OFFER!""")
 
             ap_latitude = apartments_df.loc[apartments_option]["latitude"].astype(str)
             ap_longitude = apartments_df.loc[apartments_option]["longitude"].astype(str)
 
+        st.subheader("Now you can see what things has around the apartment:")
         lifestyle_option = st.checkbox("Show me my apartment lifestyle:")
         if lifestyle_option:
-            df_google = func.get_google_data(df_user_inputs, ap_latitude, ap_longitude)
-            # df_google
-
-            df_google.loc[-1] = ["your new apartment", "apartment", ap_latitude, ap_longitude]
-            df_google.index += 1
-            df_google = df_google.sort_index()
-
-            func.maps(df_google, ap_latitude, ap_longitude)
+            try:
+                df_google = func.get_google_data(df_user_inputs, ap_latitude, ap_longitude)
+                df_google.loc[-1] = ["your new apartment", "apartment", ap_latitude, ap_longitude]
+                df_google.index += 1
+                df_google = df_google.sort_index()
+                func.maps(df_google, ap_latitude, ap_longitude)
+            except:
+                "Please select any lifestyle options from the sidebar!"
 
 
