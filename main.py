@@ -89,7 +89,8 @@ if confirmation:
         apartments_df = pd.read_csv("./data/test.csv")
         # apartments_df = i_func.pipeline_idealista(lat_lon)
         
-        apartments_df
+        predicted_df = func.predict_prices(apartments_df)
+        predicted_df
         # st.table(apartments_df)
 
 
@@ -106,13 +107,11 @@ if confirmation:
 
             ap_latitude = apartments_df.loc[apartments_option]["latitude"].astype(str)
             ap_longitude = apartments_df.loc[apartments_option]["longitude"].astype(str)
-            ap_latitude
-            ap_longitude
 
         lifestyle_option = st.checkbox("Show me my apartment lifestyle:")
         if lifestyle_option:
             df_google = func.get_google_data(df_user_inputs, ap_latitude, ap_longitude)
-            df_google
+            # df_google
 
             df_google.loc[-1] = ["your new apartment", "apartment", ap_latitude, ap_longitude]
             df_google.index += 1

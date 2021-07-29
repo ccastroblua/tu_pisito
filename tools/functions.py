@@ -1,4 +1,3 @@
-from re import sub
 from config.configuration import engine
 import pandas as pd
 import numpy as np
@@ -248,7 +247,7 @@ def maps(df, initial_lat, initial_lon):
             icon = Icon (
             color="black",
             prefix="fa",
-            icon="gym",
+            icon="futbol-o",
             icon_color="white"
         )
         else:
@@ -266,4 +265,14 @@ def maps(df, initial_lat, initial_lon):
     return folium_static(map_1)
 
 
-# def predict_prices():
+def predict_prices(df):
+    h2o.init()
+    saved_model = h2o.load_model("./models/GBM_grid__1_AutoML_20210728_185537_model_16")
+    h2o_df = h2o.H2OFrame(df)
+    predictions = saved_model.predict(h2o_df)
+    h2o_df["prediction"] = predictions
+    final_df = h2o_df.as_data_frame()
+    final_df["buy_prediction"] = 10**final_df.prediction
+    final_df = final_df.astype({"buy_prediction": int})
+    # final_df.drop(cols, axis=1, inplace=True)
+    return final_df

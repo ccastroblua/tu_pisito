@@ -73,3 +73,7 @@ ORDER BY apartment_id DESC;
 SELECT neighborhood_name
 FROM neighborhoods
 ORDER BY neighborhood_id ASC;
+
+SELECT latitude, longitude
+FROM neighborhoods
+WHERE neighborhood_name = "Guindalera";
