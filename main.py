@@ -83,8 +83,8 @@ confirmation = st.sidebar.checkbox("Let's search for my apartment!")
 if confirmation:
     if initial_selection == df_option[1] or initial_selection == df_option[2]:
 
-        apartments_df = pd.read_csv("./data/real_data/test.csv")
-        # apartments_df = i_func.pipeline_idealista(lat_lon)
+        # apartments_df = pd.read_csv("./data/real_data/test.csv")
+        apartments_df = i_func.pipeline_idealista(lat_lon)
         
         predicted_df = func.predict_prices(apartments_df)
         columns = ["name",
