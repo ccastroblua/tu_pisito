@@ -137,12 +137,12 @@ if confirmation:
             ap_latitude = apartments_df.loc[apartments_option]["latitude"].astype(str)
             ap_longitude = apartments_df.loc[apartments_option]["longitude"].astype(str)
 
-        st.subheader("Now you can see what things has around the apartment:")
-        lifestyle_option = st.checkbox("Show me my apartment lifestyle:")
+        st.subheader("Now you can see how life in this property looks like:")
+        lifestyle_option = st.checkbox("Show me my new home lifestyle:")
         if lifestyle_option:
             try:
                 df_google = func.get_google_data(df_user_inputs, ap_latitude, ap_longitude)
-                df_google.loc[-1] = ["your new apartment", "apartment", ap_latitude, ap_longitude]
+                df_google.loc[-1] = ["This is your new apartment", "apartment", ap_latitude, ap_longitude]
                 df_google.index += 1
                 df_google = df_google.sort_index()
                 func.maps(df_google, ap_latitude, ap_longitude)
