@@ -5,8 +5,14 @@ import dotenv
 import os
 import pandas as pd
 from config.configuration import engine
+from datetime import datetime
 
 dotenv.load_dotenv()
+
+# Get current time:
+now = datetime.now()
+current_time = now.strftime("%d-%m-%y-%Hh%Mm%Ss")
+
 
 def get_idealista_token():
     # Getting idealista pass from .env:
@@ -111,6 +117,7 @@ districts_names = {
 def transform_idealista(result, index):
     # First, we transform easy information:
 
+    name = result["elementList"][index]["suggestedTexts"]["title"]
     sq_mt_built = result["elementList"][index]["size"]
     n_rooms = result["elementList"][index]["rooms"]
     n_bathrooms = result["elementList"][index]["bathrooms"]
@@ -118,6 +125,7 @@ def transform_idealista(result, index):
     longitude = result["elementList"][index]["longitude"]
     address = result["elementList"][index]["address"]
     buy_price = result["elementList"][index]["price"]
+    url = result["elementList"][index]["url"]
 
     try:
         floor = float(result["elementList"][index]["floor"])
@@ -214,6 +222,7 @@ def transform_idealista(result, index):
     }
     
     dic_prediction = {
+                        "name": name,
                         "sq_mt_built": sq_mt_built,
                         "n_rooms": n_rooms,
                         "n_bathrooms": n_bathrooms,
@@ -229,7 +238,8 @@ def transform_idealista(result, index):
                         "house_type_id": house_type_id,
                         "value_m2": value_m2,
                         "neighborhood": neighborhood,
-                        "district": district
+                        "district": district,
+                        "url": url
     }
     
     return dic_mysql, dic_prediction
@@ -289,3 +299,20 @@ def import_idealista_to_mysql(df):
         """)
         
     return print("Dataframe cargado en MySQL!")
+
+
+#Transforming latitude and longitude to lat,lon for idealista API:
+def transform_lat_lon(latitude, longitude):
+    lat_lon = str(latitude) + "," + str(longitude)
+    return lat_lon
+
+
+#Let's get the whole process in one functions:
+def pipeline_idealista(lat_lon):
+    token = get_idealista_token()
+    result = idealista_request(token, lat_lon)
+    df_mysql, df_pred = creating_dataframe(result)
+    # import_idealista_to_mysql(df_mysql)
+    df_mysql.to_csv(f"./data/df_mysql_{current_time}.csv", index = False)
+    
+    return df_pred

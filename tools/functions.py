@@ -6,7 +6,10 @@ import h2o
 from h2o.automl import H2OAutoML
 from geopy.geocoders import Nominatim
 import streamlit as st
-from functions import google_functions as g_func
+import google_functions as g_func
+from folium import Choropleth, Circle, Marker, Icon, Map
+import folium
+from streamlit_folium import folium_static
 
 
 def getting_mysql_data(dropping_price=True):
@@ -101,6 +104,8 @@ def user_input_features():
     Returns:
         A dataframe with the selections given by the user
     """
+    lst = []
+
     bar = st.sidebar.checkbox("Do you need bars near?")
     restaurant = st.sidebar.checkbox("Do you need restaurants near?")
     cafe = st.sidebar.checkbox("Do you need cafes near?")
@@ -113,17 +118,152 @@ def user_input_features():
     secondary_school = st.sidebar.checkbox("Do you need secondary schools near?")
     shopping_mall = st.sidebar.checkbox("Do you need shopping malls near?")
 
-    data = {"bar": bar,
-            "restaurant": restaurant,
-            "cafe": cafe,
-            "subway_station": subway_station,
-            "train_station": train_station,
-            "supermarket": supermarket,
-            "gym": gym,
-            "park": park,
-            "primary_school": primary_school,
-            "secondary_School": secondary_school,
-            "shopping_mall": shopping_mall
-            }
 
-    return pd.DataFrame(data, index=[0])
+    lst.append({"option": "bar",
+            "confirmation": bar})
+    lst.append({"option": "restaurant",
+            "confirmation": restaurant})
+    lst.append({"option": "cafe",
+            "confirmation": cafe})
+    lst.append({"option": "subway_station",
+            "confirmation": subway_station})
+    lst.append({"option": "train_station",
+            "confirmation": train_station})
+    lst.append({"option": "supermarket",
+            "confirmation": supermarket})
+    lst.append({"option": "gym",
+            "confirmation": gym})
+    lst.append({"option": "park",
+            "confirmation": park})
+    lst.append({"option": "primary_school",
+            "confirmation": primary_school})
+    lst.append({"option": "secondary_school",
+            "confirmation": secondary_school})
+    lst.append({"option": "shopping_mall",
+            "confirmation": shopping_mall})
+
+    return pd.DataFrame(lst)
+
+
+def get_google_data(df, latitude, longitude):
+    df = df[df["confirmation"]]
+    lst = []
+
+    for i, row in df.iterrows():
+        data = g_func.get_places(latitude, longitude, radius=1000, type_ = row["option"])
+        lst = g_func.google_places(data, row["option"], lst)
+
+    return pd.DataFrame(lst)
+
+
+def maps(df, initial_lat, initial_lon):
+    """
+    Function to create a folium map with the species presences
+    Args: 
+        df: dataframe
+        initial_lat: latitude (float)
+        initial_lon: longitude (float)
+    Returns:
+        A folium map
+    """
+    #showing the maps
+    map_1 = folium.Map(tiles="OpenStreetMap", location=[initial_lat, initial_lon], zoom_start=15)
+
+    for i,row in df.iterrows():
+        
+        place = {"location" : [row["latitude"],row["longitude"]],
+                     "tooltip" : row["name"]}
+
+        if row["place_type"] == "apartment":
+            icon = Icon (
+            color="blue",
+            prefix="fa",
+            icon="home",
+            icon_color="black"
+        )
+        elif row["place_type"] == "supermarket":
+            icon = Icon (
+            color="orange",
+            prefix="fa",
+            icon="cart-arrow-down",
+            icon_color="black"
+        )
+        elif row["place_type"] == "shopping_mall":
+            icon = Icon (
+            color="orange",
+            prefix="fa",
+            icon="shop",
+            icon_color="black"
+        )
+        elif row["place_type"] == "cafe":
+            icon = Icon (
+            color="purple",
+            prefix="fa",
+            icon="coffee",
+            icon_color="black"
+        )
+        elif row["place_type"] == "restaurant":
+            icon = Icon (
+            color="purple",
+            prefix="fa",
+            icon="cutlery",
+            icon_color="black"
+        )
+        elif row["place_type"] == "primary_school":
+            icon = Icon (
+            color="darkred",
+            prefix="fa",
+            icon="school",
+            icon_color="black"
+        )
+        elif row["place_type"] == "bar":
+            icon = Icon (
+            color="purple",
+            prefix="fa",
+            icon="glass",
+            icon_color="black"
+        )
+        elif row["place_type"] == "secondary_school":
+            icon = Icon (
+            color="darkred",
+            prefix="fa",
+            icon="graduation-cap",
+            icon_color="black"
+        )
+        elif row["place_type"] == "subway_station":
+            icon = Icon (
+            color="red",
+            prefix="fa",
+            icon="subway",
+            icon_color="black"
+        )
+        elif row["place_type"] == "bus_station":
+            icon = Icon (
+            color="red",
+            prefix="fa",
+            icon="bus",
+            icon_color="black"
+        )
+        elif row["place_type"] == "gym":
+            icon = Icon (
+            color="black",
+            prefix="fa",
+            icon="gym",
+            icon_color="white"
+        )
+        else:
+            icon = Icon (
+            color="green",
+            prefix="fa",
+            icon="tree",
+            icon_color="white"
+        )
+
+                
+
+        marker = Marker(**place, icon = icon).add_to(map_1)
+
+    return folium_static(map_1)
+
+
+# def predict_prices():

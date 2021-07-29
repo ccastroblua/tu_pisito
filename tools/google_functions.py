@@ -8,7 +8,7 @@ gm_key = os.getenv("google_maps")
 
 
 # Function to send an specific request to Google Maps API:
-def get_places(lat, lon, radius, keyword = "", type_ = ""):
+def get_places(lat, lon, radius=1000, keyword = "", type_ = ""):
     """It gets a response from Google API with a max of 20 results to a determined request with
     keywords, type of place, longitude, latitude and radius.
 
