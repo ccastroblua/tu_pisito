@@ -298,3 +298,17 @@ def is_good_purchase(price, prediction):
         else:
             return False
 
+
+def change_column_names(df):
+    new_df = df.rename(columns={
+            "name": "Name", 
+            "sq_mt_built": "Square Meters Built",
+            "n_rooms": "Number of rooms",
+            "n_bathrooms": "Number of bathroom",
+            "floor": "Floor",
+            "buy_price": "Price",
+            "neighborhood": "Neighborhood",
+            "url": "URL"
+            }
+    )
+    return new_df

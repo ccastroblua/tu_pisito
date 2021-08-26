@@ -1,0 +1,21 @@
+name,sq_mt_built,n_rooms,n_bathrooms,latitude,longitude,buy_price,is_new_development,is_renewal_needed,has_lift,is_exterior,has_parking,floor,house_type_id,value_m2,neighborhood,district,url
+Piso en Calle Gran Avenida,112.0,2,1,40.3697983,-3.7092464,175000.0,0,0,0,1,0,2.0,0,1931.95,Orcasitas,Usera,https://www.idealista.com/inmueble/94109226/
+Piso en Avenida de Espinela,101.0,4,1,40.3423233,-3.7110547,145630.0,0,0,0,1,0,1.0,0,1617.18,San Andrés,Villaverde,https://www.idealista.com/inmueble/93042397/
+Piso en Calle Magnesia,108.0,4,1,40.3447442,-3.7080979,168630.0,0,0,0,1,0,1.0,0,1617.18,San Andrés,Villaverde,https://www.idealista.com/inmueble/94753478/
+Piso en Calle de la Vírgen de los Desamparados,93.0,3,1,40.3533932,-3.699726,185000.0,0,0,1,1,0,7.0,0,1796.68,Los Ángeles,Villaverde,https://www.idealista.com/inmueble/93513263/
+Piso en Calle Periana,90.0,3,1,40.3674764,-3.6892404,149000.0,0,0,1,1,0,0.0,0,1912.8,San Fermín,Usera,https://www.idealista.com/inmueble/94374815/
+Piso en Calle Trevélez,133.0,3,2,40.3660675,-3.7037003,187000.0,0,0,0,1,1,0.0,0,1931.95,Orcasitas,Usera,https://www.idealista.com/inmueble/94775732/
+Piso en Calle San Gervasio,110.0,3,2,40.3544101,-3.6845894,249900.0,0,0,1,1,1,3.0,0,2197.8,Butarque,Villaverde,https://www.idealista.com/inmueble/94688276/
+Piso,108.0,3,1,40.3672518,-3.6997188,145000.0,0,0,1,0,0,6.0,0,1637.13,12 de Octubre-Orcasur,Usera,https://www.idealista.com/inmueble/91625119/
+Piso en Calle alerce,111.0,3,2,40.3633098,-3.6960554,178000.0,0,1,0,1,0,1.0,0,1637.13,12 de Octubre-Orcasur,Usera,https://www.idealista.com/inmueble/94508358/
+Piso en Calle Romeral,96.0,3,2,40.349132,-3.6979386,135000.0,0,0,0,1,0,4.0,0,1796.68,Los Ángeles,Villaverde,https://www.idealista.com/inmueble/94557997/
+Piso,83.0,3,1,40.3491631,-3.6917062,120000.0,0,0,0,0,0,0.0,0,1827.79,Los Rosales,Villaverde,https://www.idealista.com/inmueble/86668324/
+Piso en Calle Periana,61.0,2,1,40.3683552,-3.6880194,195000.0,0,0,1,1,1,2.0,0,1912.8,San Fermín,Usera,https://www.idealista.com/inmueble/94305268/
+Piso en Paseo de Alberto Palacios,69.0,3,1,40.343259,-3.7133419,113000.0,0,0,0,1,0,3.0,0,1617.18,San Andrés,Villaverde,https://www.idealista.com/inmueble/87157126/
+Piso en Calle Hermandad de Donantes de Sangre s/n,98.0,3,2,40.3541047,-3.7011854,190000.0,0,0,1,1,0,1.0,0,1796.68,Los Ángeles,Villaverde,https://www.idealista.com/inmueble/90074622/
+Piso en Canción del Olvido,95.0,3,1,40.3627966,-3.6988845,152000.0,0,0,1,1,0,3.0,0,1796.68,Los Ángeles,Villaverde,https://www.idealista.com/inmueble/93984395/
+Piso en Calle Periana,110.0,3,2,40.3663,-3.6852713,239000.0,0,0,1,1,1,1.0,0,1912.8,San Fermín,Usera,https://www.idealista.com/inmueble/93150900/
+"Piso en Paseo Talleres , 17",51.0,1,1,40.3471899,-3.7043796,163000.0,1,0,1,1,1,3.0,0,1617.18,San Andrés,Villaverde,https://www.idealista.com/obra-nueva/91888341/
+"Piso en Paseo Talleres , 17",74.0,2,2,40.3471899,-3.7043796,191000.0,1,0,1,1,1,2.0,0,1617.18,San Andrés,Villaverde,https://www.idealista.com/obra-nueva/91185022/
+"Ático en Paseo Talleres , 17",124.0,2,2,40.3471899,-3.7043796,291000.0,1,0,1,1,1,5.0,2,1617.18,San Andrés,Villaverde,https://www.idealista.com/obra-nueva/91894960/
+Piso en Calle de Rocafort,61.0,3,1,40.339958,-3.689931,108700.0,0,0,0,1,0,1.0,0,1308.89,San Cristóbal,Villaverde,https://www.idealista.com/inmueble/94299810/

@@ -2,7 +2,7 @@
 
 # "Tu pisito" project:
 
-The goal of this project is to create a web page that helps you to find the best home for you. It connects with Idealista and Google Maps API to get information and a MySQL database in the backend. Also uses streamlit to provide a simple buy useful web page for users.
+The goal of this project is to create a web page that helps you to find the best home for you. It connects with Idealista and Google Maps API to get information and a MySQL database in the backend. Also uses streamlit to provide a simple but useful web page for users.
 
 This project has several stages defined:
 1. Dataframe selection, cleaning and manipulation.
