@@ -13,7 +13,7 @@ else:
     apartments_df = st.session_state.apartments_df
 
 
-# Streamlit front:
+# Streamlit webpage:
 st.write("""
 # Get your apartment in Madrid with the best price in the market!
 

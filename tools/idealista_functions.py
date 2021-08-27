@@ -15,6 +15,11 @@ current_time = now.strftime("%d-%m-%y-%Hh%Mm%Ss")
 
 
 def get_idealista_token():
+    """Getting idealista token to perform API requests.
+
+    Returns:
+        Dictionary: Dictionary with API idealista token.
+    """
     # Getting idealista pass from .env:
     idealista_pass = os.getenv("idealista")
 
@@ -44,15 +49,18 @@ def get_idealista_token():
 
 # Now i make a request to the API for some results:
 
-"""
-distance = 2000
-latitude = 40.426
-longitude = -3.691
-lat_lon = str(latitude) + "," + str(longitude)
-"""
-
 # Function to call idealista API and get a request:
 def idealista_request(bearer_token, lat_lon, distance=2000):
+    """Requesting all apartments from idealista API, giving them latitude and logitude within 2000 meters distance from that coordinates.
+
+    Args:
+        bearer_token (Dictionary): Dictionary with token and parameters to perform request.
+        lat_lon (string): latitude and longitude with format "{latitude},{longitude}".
+        distance (int, optional): [description]. Defaults to 2000.
+
+    Returns:
+        Dictionary: Dictionary with all the information from the apartments from idealista API request.
+    """    
     url = "https://api.idealista.com/3.5/es/search"
 
     headers = {'Content-Type': 'Content-Type: multipart/form-data;', 
@@ -115,6 +123,16 @@ districts_names = {
 
 
 def transform_idealista(result, index):
+    """Transform 1 idealista request result into 2 dictionary for importing into MySQL DB and predicting apartments prices.
+
+    Args:
+        result (DataFrame): DataFrame from the result of idealista API request.
+        index (int): Index from the apartment we want to clean.
+
+    Returns:
+        dic_mysql (Dictionary): Dictionary to append in a list in order to import into MySQL DB.
+        dic_prediction (Dictionary): Dictionary to append in a list in order to predict the price of apartments. 
+    """    
     # First, we transform easy information:
 
     name = result["elementList"][index]["suggestedTexts"]["title"]
@@ -246,6 +264,15 @@ def transform_idealista(result, index):
 
 # Now, i define a function to transform both dictionaries in dataframes:
 def creating_dataframe(result):
+    """Function that creates from a whole result of idealista API two DataFrames one for importing into MySQL DB and one for predicting apartments prices.
+
+    Args:
+        result (DataFrame): DataFrame from the result of idealista API request.
+
+    Returns:
+        DataFrame: DataFrame ready to import into MySQL DB.
+        DataFrame: DataFrame ready to predict the price of apartments. 
+    """    
     new_list1 = []
     new_list2 = []
     
@@ -260,6 +287,14 @@ def creating_dataframe(result):
 
 # And make a function to import idealista dataframe to mysql:
 def import_idealista_to_mysql(df):
+    """Function to import a DataFrame into apartments table MySQL DB.
+
+    Args:
+        df (DataFrame): DataFrame ready to import into MySQL DB.
+
+    Returns:
+        None
+    """    
     for i, row in df.iterrows():
 
         # Loading the row to MySQL
@@ -298,17 +333,38 @@ def import_idealista_to_mysql(df):
         {row["district_id"]});
         """)
         
-    return print("Dataframe cargado en MySQL!")
+    print("Dataframe cargado en MySQL!")
 
 
 #Transforming latitude and longitude to lat,lon for idealista API:
 def transform_lat_lon(latitude, longitude):
+    """Transforming latitude and longitude in a format idealista API can use.
+
+    Args:
+        latitude (int): Latitude from a place.
+        longitude (int): Longitude from a place.
+
+    Returns:
+        string: Latitude and longitude combined in "{latitude},{longitude}".
+    """    
     lat_lon = str(latitude) + "," + str(longitude)
     return lat_lon
 
 
 #Let's get the whole process in one functions:
 def pipeline_idealista(lat_lon):
+    """Complex function that calls other functions working with Idealista API. The objective of this function is simplify in one function API request and DataFrame transformation.
+    - It makes idealista API request for a token.
+    - It makes idealista API request for apartments near a coordinates.
+    - Create 2 DataFrame for importing in MySQL DB and for ML model.
+    - Finally, create 2 CSV with those DataFrame to save that information.
+
+    Args:
+        lat_lon (string): latitude and longitude in "{latitude},{longitude}" format.
+
+    Returns:
+        DataFrame: DataFrame ready to use it to predict apartments prices.
+    """    
     token = get_idealista_token()
     result = idealista_request(token, lat_lon)
     df_mysql, df_pred = creating_dataframe(result)
