@@ -12,7 +12,14 @@ from streamlit_folium import folium_static
 
 
 def getting_mysql_data(dropping_price=True):
+    """Querying database for all registers order by apartments id.
 
+    Args:
+        dropping_price (bool, optional): If dropping_price is True this function eliminate "buy_price" column. Defaults to True.
+
+    Returns:
+        DataFrame: DataFrame ready to import to MySQL DB.
+    """    
     # Querying database for all our data:
     mysql_df = pd.read_sql_query(
     f"""
@@ -58,6 +65,14 @@ def getting_mysql_data(dropping_price=True):
 
 
 def get_coordinates(address):
+    """Function that gets and address and convert it to latitude and logitude using geocode library.
+
+    Args:
+        address (string): Defined address.
+
+    Returns:
+        dictionary: Dictionary with the address specific latitude and longitude.
+    """    
     geolocator = Nominatim(user_agent="tu_pisito")
     address += ", Madrid"
     try:
@@ -72,7 +87,11 @@ def get_coordinates(address):
 
 
 def get_neighborhoods():
-    
+    """Gets an all neighborhood names from neighborhood table in MySQL DB order by neighborhood id.
+
+    Returns:
+        DataFrame: DataFrame with neighborhood names and ids order by id.
+    """
     nh_df = pd.read_sql_query(
     f"""
     SELECT neighborhood_name
@@ -84,7 +103,14 @@ def get_neighborhoods():
 
 
 def get_coordinates_neighborhood(neighborhood):
+    """Getting a neighborhood latitude and longitude based on a neighborhood name.
 
+    Args:
+        neighborhood (string): Neighborhood name.
+
+    Returns:
+        DataFrame: Dataframe with latitude and longitude of an specific neighborhood.
+    """    
     df = pd.read_sql_query(
     f"""
     SELECT latitude, longitude
@@ -96,12 +122,11 @@ def get_coordinates_neighborhood(neighborhood):
 
 
 def user_input_features():
-    """
-    Function to save the info that the user give in the app
+    """Function to save the info that the user gave in streamlit with his specific lifestyle characteristics.
     Args: 
-        non receive parameters
+        None
     Returns:
-        A dataframe with the selections given by the user
+        DataFrame: A dataframe with the selections given by the user.
     """
     lst = []
 
@@ -145,6 +170,16 @@ def user_input_features():
 
 
 def get_google_data(df, latitude, longitude):
+    """Call Google API function and gets places for each user lifestyle requires. these places are 1000 meters near to the aparmtent selected.
+
+    Args:
+        df (DataFrame): DataFrame with the information of the apartments selected.
+        latitude (int): latitude from the apartment selected.
+        longitude (int): longitude from the apartments selected.
+
+    Returns:
+        DataFrame: DataFrame with all the places information (name, place type, latitude and longitude)
+    """    
     df = df[df["confirmation"]]
     lst = []
 
@@ -156,14 +191,14 @@ def get_google_data(df, latitude, longitude):
 
 
 def maps(df, initial_lat, initial_lon):
-    """
-    Function to create a folium map with the species presences
+    """Function to create a folium map based on a DataFrame with different places.
+
     Args: 
         df: dataframe
-        initial_lat: latitude (float)
-        initial_lon: longitude (float)
+        initial_lat (float): latitude 
+        initial_lon (float): longitude 
     Returns:
-        A folium map
+        A folium static map
     """
     #showing the maps
     map_1 = folium.Map(tiles="OpenStreetMap", location=[initial_lat, initial_lon], zoom_start=15)
@@ -266,6 +301,14 @@ def maps(df, initial_lat, initial_lon):
 
 
 def predict_prices(df):
+    """Using a DataFrame and a model predict apartments prices based on it's characteristics.
+
+    Args:
+        df (DataFrame): DataFrame with several apartments and it's characteristics.
+
+    Returns:
+        DataFrame: DataFrame with a new column "buy_prediction" with apartment predicted price.
+    """    
     h2o.init()
     saved_model = h2o.load_model("./models/GBM_grid__1_AutoML_20210728_185537_model_16")
     h2o_df = h2o.H2OFrame(df)
@@ -279,7 +322,18 @@ def predict_prices(df):
 
 
 def is_good_purchase(price, prediction):
-    
+    """Comparison between real price and predicted price. Returns if an apartments is a good option to buy or not.
+    - Lower than 1.000.000 euros apartments: real prices has to be 20% lower than predicted price.
+    - Between 1.000.000 and 2.000.000 euros apartments: real prices has to be 30% lower than predicted price.
+    - Over 2.000.000 euros apartments: real prices has to be 5% lower than predicted price.
+
+    Args:
+        price (int): Apartments real price.
+        prediction (int): Apartments predicted price.
+
+    Returns:
+        bool: Returns TRUE if the real price is lower than the predicted price base on the above explained intervals. 
+    """    
     per_error = (price - prediction) / price * 100
 
     if price < 1000000:
@@ -300,6 +354,14 @@ def is_good_purchase(price, prediction):
 
 
 def change_column_names(df):
+    """Function to change columns names of an specific DataFrame.
+
+    Args:
+        df (DataFrame): DataFrame of apartments.
+
+    Returns:
+        DataFrame: DataFrame with new column names.
+    """    
     new_df = df.rename(columns={
             "name": "Name", 
             "sq_mt_built": "Square Meters Built",

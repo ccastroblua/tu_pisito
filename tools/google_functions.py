@@ -50,7 +50,6 @@ def google_places(response, place_type, places_list=[]):
     Returns: 
     list: list of diccionaries (JSON format) with name of the place, latitude, longitude,
     and a column for each condition.
-
     """
     for result in response["results"]:
         name = result["name"]
@@ -68,78 +67,3 @@ def google_places(response, place_type, places_list=[]):
         places_list.append(dicc)
 
     return places_list
-
-
-# Get specific places data:  
-def get_restaurants(latitude, longitude, radius=1000):
-    place_type = "restaurant"
-    data = get_places(latitude, longitude, radius, type_=place_type)
-    return data
-
-
-def get_bars(latitude, longitude, radius=1000):
-    place_type = "bar"
-    data = get_places(latitude, longitude, radius, type_=place_type)
-    return data
-
-
-def get_cafes(latitude, longitude, radius=1000):
-    place_type = "cafe"
-    data = get_places(latitude, longitude, radius, type_=place_type)
-    return data
-
-
-def get_subway_stations(latitude, longitude, radius=1000):
-    place_type = "subway_station"
-    data = get_places(latitude, longitude, radius, type_=place_type)
-    return data
-
-
-def get_train_stations(latitude, longitude, radius=1000):
-    place_type = "train_station"
-    data = get_places(latitude, longitude, radius, type_=place_type)
-    return data
-
-
-def get_supermarkets(latitude, longitude, radius=1000):
-    place_type = "supermarket"
-    data = get_places(latitude, longitude, radius, type_=place_type)
-    return data
-
-
-def get_gyms(latitude, longitude, radius=1000):
-    place_type = "gym"
-    data = get_places(latitude, longitude, radius, type_=place_type)
-    return data
-
-
-def get_parks(latitude, longitude, radius=1000):
-    place_type = "park"
-    data = get_places(latitude, longitude, radius, type_=place_type)
-    return data
-
-
-def get_parkings(latitude, longitude, radius=1000):
-    place_type = "parking"
-    data = get_places(latitude, longitude, radius, type_=place_type)
-    return data
-
-
-def get_primary_schools(latitude, longitude, radius=1000):
-    place_type = "primary_school"
-    data = get_places(latitude, longitude, radius, type_=place_type)
-    return data
-
-
-def get_secondary_schools(latitude, longitude, radius=1000):
-    place_type = "secondary_school"
-    data = get_places(latitude, longitude, radius, type_=place_type)
-    return data
-
-
-def get_shopping_malls(latitude, longitude, radius=1000):
-    place_type = "shopping_mall"
-    data = get_places(latitude, longitude, radius, type_=place_type)
-    return data
-
-
